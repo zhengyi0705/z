@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动漫亲子回忆录 | 爱与成长的旅程</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #FF9EBC;
+            --secondary-color: #A3E7FC;
+            --accent-color: #FFD166;
+            --light-color: #FFF9F2;
+            --dark-color: #5D5FEF;
+            --love-color: #FF6B8B;
+            --text-color: #333;
+            --shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --radius: 20px;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff9ebc' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Mochiy Pop One', sans-serif;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 顶部特殊按钮 */
+        .love-button-container {
+            text-align: center;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(255, 107, 139, 0.2);
+        }
+        
+        .love-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--love-color), #FF8E8E);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
+            transition: all 0.3s;
+            animation: heartbeat 2s infinite;
+        }
+        
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+            background: linear-gradient(135deg, #FF8E8E, var(--love-color));
+        }
+        
+        .love-button i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem 0;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            color: white;
+            text-shadow: 3px 3px 0 var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0.5rem 1rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .nav-links i {
+            margin-right: 0.5rem;
+        }
+        
+        /* 主内容区域 */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title i {
+            background-color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        /* 照片展示区域 */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .photo-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            height: 250px;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .photo-card:hover .photo-img {
+            transform: scale(1.05);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover .photo-caption {
+            transform: translateY(0);
+        }
+        
+        /* 旅行回忆 */
+        .travel-memories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .travel-card {
+            background-color: var(--light-color);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .travel-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .travel-card h3 {
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .travel-card i {
+            margin-right: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .travel-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* 回忆时间线 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 2rem);
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 2rem);
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            width: 100%;
+            position: relative;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .timeline-content h3 {
+            color: var(--dark-color);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: calc(50% - 35px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: calc(50% - 35px);
+        }
+        
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 0;
+                right: auto;
+            }
+        }
+        
+        /* 浮动元素 */
+        .floating-element {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .cloud {
+            width: 150px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50px;
+            position: absolute;
+        }
+        
+        .cloud::before, .cloud::after {
+            content: "";
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .cloud::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 20px;
+        }
+        
+        .cloud::after {
+            width: 70px;
+            height: 70px;
+            top: -35px;
+            right: 20px;
+        }
+        
+        .cloud-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 25s infinite linear;
+        }
+        
+        .cloud-2 {
+            top: 20%;
+            right: 10%;
+            animation: float 30s infinite linear reverse;
+        }
+        
+        .cloud-3 {
+            bottom: 15%;
+            left: 15%;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(50px) translateY(-20px); }
+            50% { transform: translateX(100px) translateY(0); }
+            75% { transform: translateX(50px) translateY(20px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+        
+        /* 表白页面样式 */
+        .love-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .love-page.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .love-message {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        
+        .love-message h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .love-message p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .close-love-page {
+            background: white;
+            color: var(--love-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .close-love-page:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 2rem;
+            animation: floatHearts 20s linear infinite;
+        }
+        
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 表白页面 -->
+    <div class="love-page" id="lovePage">
+        <div class="hearts-container" id="heartsContainer"></div>
+        <div class="love-message">
+            <h1><i class="fas fa-heart"></i> 老婆我爱你 <i class="fas fa-heart"></i></h1>
+            <p>亲爱的老婆，感谢你为我们的家庭付出的一切</p>
+            <p>你是世界上最棒的妻子和母亲</p>
+            <p>我们一起走过的每一天都充满了幸福和欢笑</p>
+            <p>未来，我们还要一起创造更多美好的回忆</p>
+            <p>永远爱你，我的宝贝！</p>
+            <button class="close-love-page" id="closeLovePage">返回首页</button>
+        </div>
+    </div>
+    
+    <!-- 浮动云朵装饰 -->
+    <div class="cloud cloud-1 floating-element"></div>
+    <div class="cloud cloud-2 floating-element"></div>
+    <div class="cloud cloud-3 floating-element"></div>
+    
+    <!-- 顶部爱心按钮 -->
+    <div class="love-button-container">
+        <a href="#" class="love-button" id="openLovePage">
+            <i class="fas fa-heart"></i> 老婆我爱你
+        </a>
+    </div>
+    
+    <!-- 头部区域 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo"><i class="fas fa-heart"></i> 动漫亲子回忆录</h1>
+                <p class="subtitle">记录我们温馨的亲子时刻，珍藏每一次欢笑与成长，将美好回忆绘制成动漫般的画卷</p>
+                
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="#photos"><i class="fas fa-images"></i> 亲子照片</a></li>
+                        <li><a href="#travel"><i class="fas fa-map-marked-alt"></i> 旅行回忆</a></li>
+                        <li><a href="#timeline"><i class="fas fa-history"></i> 成长时间线</a></li>
+                        <li><a href="#about"><i class="fas fa-users"></i> 关于我们</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 主内容区域 -->
+    <main class="container">
+        <!-- 亲子照片部分 -->
+        <section id="photos">
+            <div class="section-title">
+                <i class="fas fa-camera"></i>
+                <h2>亲子照片回忆</h2>
+            </div>
+            <p>捕捉我们最珍贵的瞬间，每一张照片都记录着爱与欢笑。</p>
+            
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="家庭野餐" class="photo-img">
+                    <div class="photo-caption">
+                        <h3>春日野餐</h3>
+                        <p>2023年4月，在樱花树下享受美好时光</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="海边游玩" class="photo-img">
+                    <div class="photo-caption">
+                        <h3>夏日海边</h3>
+                        <p>2022年8月，第一次带宝贝看海</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="生日庆祝" class="photo-img">
+                    <div class="photo-caption">
+                        <h3>五岁生日</h3>
+                        <p>2023年11月，宝贝的第一个主题生日派对</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="雪地玩耍" class="photo-img">
+                    <div class="photo-caption">
+                        <h3>冬日雪趣</h3>
+                        <p>2023年1月，第一次堆雪人的欢乐</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 旅行回忆部分 -->
+        <section id="travel">
+            <div class="section-title">
+                <i class="fas fa-plane"></i>
+                <h2>地区旅游回忆</h2>
+            </div>
+            <p>我们一起探索世界的足迹，每一段旅程都是难忘的回忆。</p>
+            
+            <div class="travel-memories">
+                <div class="travel-card">
+                    <h3><i class="fas fa-mountain"></i> 桂林山水之旅</h3>
+                    <div class="travel-date">2023年7月</div>
+                    <p>乘船游览漓江，感受"桂林山水甲天下"的美景。宝贝第一次坐竹筏，兴奋地用手划水。</p>
+                    <p><strong>最难忘：</strong>在阳朔骑自行车穿梭在田园间，品尝地道的桂林米粉。</p>
+                </div>
+                
+                <div class="travel-card">
+                    <h3><i class="fas fa-umbrella-beach"></i> 三亚海滩度假</h3>
+                    <div class="travel-date">2022年12月</div>
+                    <p>逃离寒冷的冬天，享受三亚温暖的阳光和沙滩。宝贝学会了游泳，还捡了很多漂亮的贝壳。</p>
+                    <p><strong>最难忘：</strong>在海边看日落，全家一起堆沙堡直到天黑。</p>
+                </div>
+                
+                <div class="travel-card">
+                    <h3><i class="fas fa-landmark"></i> 北京文化之旅</h3>
+                    <div class="travel-date">2021年10月</div>
+                    <p>游览故宫、长城和颐和园，感受中华文化的博大精深。宝贝第一次登上长城，成了"好汉"。</p>
+                    <p><strong>最难忘：</strong>在天安门广场看升旗仪式，宝贝庄重地行少先队礼。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 成长时间线 -->
+        <section id="timeline">
+            <div class="section-title">
+                <i class="fas fa-baby"></i>
+                <h2>成长时间线</h2>
+            </div>
+            <p>记录宝贝成长的每一个重要时刻，从咿呀学语到小小少年。</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>宝贝诞生</h3>
+                        <p>6月15日，我们的家庭迎来了新成员。体重3.2kg，健康可爱的宝贝让我们成为了世界上最幸福的父母。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>第一次走路</h3>
+                        <p>1岁2个月，宝贝勇敢地迈出了人生的第一步。虽然摇摇晃晃，但那份勇敢让我们无比骄傲。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>进入幼儿园</h3>
+                        <p>9月1日，宝贝第一次背起小书包上幼儿园。虽然有些不舍，但很快适应了集体生活，结交了新朋友。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>幼儿园毕业</h3>
+                        <p>7月，宝贝从幼儿园毕业了。在毕业典礼上表演了节目，拿到了人生第一张毕业证书。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 关于我们 -->
+        <section id="about">
+            <div class="section-title">
+                <i class="fas fa-star"></i>
+                <h2>关于我们的家庭</h2>
+            </div>
+            <p>我们是一个充满爱和欢笑的家庭，爸爸是工程师，妈妈是教师，还有一个活泼可爱的宝贝。我们相信陪伴是最好的教育，所以尽可能多的时间一起创造美好回忆。</p>
+            <p>这个网站是我们亲子回忆的数字相册，记录了我们一起度过的温馨时光。未来，我们会继续更新，记录更多美好的瞬间。</p>
+            <p style="margin-top: 1rem; font-style: italic; color: var(--primary-color);">"家庭的温暖不在于房子的大小，而在于笑声的多少。"</p>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3><i class="fas fa-heart heart"></i> 感谢访问我们的亲子回忆录</h3>
+                <p>每一份回忆都是无价的宝藏，我们将继续创造更多美好时刻</p>
+                <p style="margin-top: 1rem;">© 2023 动漫亲子回忆录 | 用爱记录成长</p>
+                <div style="margin-top: 1.5rem;">
+                    <i class="fas fa-map-marker-alt"></i> 中国 · 幸福之家
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 表白页面功能
+        const lovePage = document.getElementById('lovePage');
+        const openLovePageButton = document.getElementById('openLovePage');
+        const closeLovePageButton = document.getElementById('closeLovePage');
+        const heartsContainer = document.getElementById('heartsContainer');
+        
+        // 打开表白页面
+        openLovePageButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            lovePage.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            
+            // 创建漂浮的爱心
+            createHearts();
+        });
+        
+        // 关闭表白页面
+        closeLovePageButton.addEventListener('click', function() {
+            lovePage.classList.remove('active');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+            
+            // 清除所有爱心
+            clearHearts();
+        });
+        
+        // 点击页面其他区域也可以关闭
+        lovePage.addEventListener('click', function(e) {
+            if (e.target === lovePage) {
+                lovePage.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                clearHearts();
+            }
+        });
+        
+        // 创建漂浮爱心
+        function createHearts() {
+            // 清除之前的爱心
+            clearHearts();
+            
+            // 创建新的爱心
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                
+                // 随机位置
+                const left = Math.random() * 100;
+                const size = Math.random() * 2 + 1; // 1-3rem
+                const delay = Math.random() * 20; // 0-20s延迟
+                const duration = Math.random() * 10 + 15; // 15-25s持续时间
+                
+                heart.style.left = `${left}%`;
+                heart.style.fontSize = `${size}rem`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // 清除所有爱心
+        function clearHearts() {
+            heartsContainer.innerHTML = '';
+        }
+        
+        // 简单的交互
